@@ -1,27 +1,68 @@
+// {
+// 	"compilerOptions": {
+// 		"target": "ES2020",
+// 		"module": "ESNext",
+// 		"moduleResolution": "node",
+// 		"outDir": "dist",
+// 		"strict": true,
+// 		"esModuleInterop": true,
+// 		"forceConsistentCasingInFileNames": true,
+// 		"skipLibCheck": true,
+// 		"resolveJsonModule": true,
+// 		"allowJs": true,
+// 		"incremental": true,
+// 		"baseUrl": ".",
+// 		"paths": { "@/*": ["./src/*"], "@/styles/*": ["./styles/*"] },
+// 		"lib": ["dom", "dom.iterable", "esnext"],
+// 		"noEmit": true,
+// 		"isolatedModules": true,
+// 		"jsx": "preserve",
+// 		"types": ["node"],
+// 		"plugins": [{ "name": "next" }]
+// 	},
+// 	"include": [
+// 		"prisma/**/*.ts",
+// 		"src/**/*.ts",
+// 		".next/types/**/*.ts",
+// 		"global.d.ts"
+// 	],
+// 	"exclude": ["node_modules", "dist"]
+// }
+
 {
-  "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+	"compilerOptions": {
+		"target": "ES2020",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"strict": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"incremental": true,
+		"baseUrl": ".",
+
+		// ✅ ВИПРАВЛЕНО: "@/styles/*" тепер вказує на "./src/styles/*"
+		"paths": { "@/*": ["./src/*"], "@/styles/*": ["./src/styles/*"] },
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"noEmit": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"types": ["node", "vitest/globals"],
+		"plugins": [{ "name": "next" }]
+	},
+	"include": [
+		"prisma/**/*.ts",
+		"src/**/*.ts",
+		// ✅ ВИПРАВЛЕНО: Включаємо CSS-файли всередині src/styles
+		"src/**/*.css",
+		".next/types/**/*.ts",
+		"global.d.ts",
+		"src/lib/prismaAdmin.js",
+		"src/lib/prismaUser.js",
+		"prisma/seed.js"
+	],
+	"exclude": ["node_modules", "dist"]
 }
